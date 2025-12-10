@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>サイト準備中 | Coming Soon</title>
+  <meta name="description" content="ただいまサイトを準備中です。近日公開予定。" />
+  <meta name="robots" content="noindex, nofollow" />
+  <!-- <link rel="icon" href="/favicon.ico"> -->
+  <style>
+    :root{
+      --bg: #0b1020;
+      --card: #0f1530cc;
+      --fg: #e8ebf2;
+      --muted: #a9b0c6;
+      --accent: #7aa2ff; /* アクセント */
+      --accent-2: #7ff4c3; /* グラデ混色 */
+      --ring: #ffffff20;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root{
+        --bg: #f6f8fe;
+        --card: #ffffffcc;
+        --fg: #1a1c24;
+        --muted: #5a6480;
+        --accent: #2f6aff;
+        --accent-2: #00c18d;
+        --ring: #00000014;
+        --shadow: 0 8px 22px rgba(0,0,0,.08);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      background:
+        radial-gradient(1200px 600px at 80% -10%, color-mix(in lch, var(--accent) 30%, transparent), transparent 70%),
+        radial-gradient(900px 500px at -10% 110%, color-mix(in lch, var(--accent-2) 28%, transparent), transparent 75%),
+        linear-gradient(180deg, color-mix(in lch, var(--bg) 94%, black 6%), var(--bg));
+      color: var(--fg);
+      font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic UI", "Yu Gothic", Meiryo, sans-serif;
+      display:grid;
+      place-items:center;
+      padding: 24px;
+    }
+
+    .wrap{
+      width:min(960px, 100%);
+      backdrop-filter: saturate(140%) blur(10px);
+      -webkit-backdrop-filter: saturate(140%) blur(10px);
+      background: var(--card);
+      border: 1px solid var(--ring);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: clamp(20px, 3.2vw, 36px);
+    }
+
+    header{
+      display:flex; align-items:center; gap:16px; margin-bottom:20px;
+    }
+
+    .logo{
+      width:48px; height:48px; border-radius:14px; display:grid; place-items:center;
+      background: conic-gradient(from 180deg, var(--accent), var(--accent-2));
+      box-shadow: 0 10px 22px color-mix(in lch, var(--accent) 40%, transparent);
+      position: relative; overflow:hidden;
+    }
+    .logo::after{
+      content:""; position:absolute; inset:1px; border-radius:12px;
+      background: linear-gradient(180deg, #ffffff44, #ffffff12 30%, transparent 60%);
+    }
+    .brand{ font-weight:700; letter-spacing:.2px; }
+
+    .card{
+      display:grid; gap:20px;
+      grid-template-columns: 1.2fr .8fr;
+    }
+    @media (max-width: 780px){ .card{ grid-template-columns: 1fr; } }
+
+    .title{
+      font-size: clamp(24px, 3.6vw, 34px);
+      line-height: 1.25;
+      margin: 4px 0 6px;
+    }
+    .lead{ color: var(--muted); margin:0 0 6px; }
+
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 10px; border:1px solid var(--ring); border-radius:999px; font-size:.9rem; color: var(--muted);
+      background: linear-gradient(180deg, #ffffff10, #00000006);
+    }
+
+    /* プログレスバー */
+    .progress{
+      position: relative;
+      height: 12px; border-radius: 999px; overflow:hidden; width: 100%;
+      background: color-mix(in lch, var(--fg) 8%, transparent);
+      border: 1px solid var(--ring);
+      box-shadow: inset 0 1px 3px rgba(0,0,0,.08);
+    }
+    .bar{
+      position: absolute; inset:0 auto 0 0; width: 0%;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      filter: saturate(140%);
+      animation: load 3.2s ease-in-out infinite;
+    }
+    @keyframes load{
+      0%{ width: 8%; }
+      50%{ width: 92%; }
+      100%{ width: 8%; }
+    }
+
+    /* ステータス点滅 */
+    .dot{ width:10px; height:10px; border-radius:50%; background: var(--accent); box-shadow: 0 0 0 3px color-mix(in lch, var(--accent) 25%, transparent); }
+
+    .panel{ display:grid; gap:16px; }
+
+    .meta{
+      display:flex; gap:12px; flex-wrap:wrap; align-items:center;
+      color: var(--muted);
+    }
+
+    .actions{ display:flex; gap:10px; flex-wrap:wrap; }
+    .btn{ appearance:none; border:none; cursor:pointer; text-decoration:none; color:var(--fg);
+      padding:10px 14px; border-radius:12px; font-weight:600; letter-spacing:.2px; transition: transform .06s ease, box-shadow .06s ease; 
+      background: linear-gradient(180deg, color-mix(in lch, var(--accent) 45%, transparent), color-mix(in lch, var(--accent) 18%, transparent));
+      border:1px solid var(--ring); box-shadow: var(--shadow);
+    }
+    .btn:hover{ transform: translateY(-1px); }
+    .btn.secondary{ background: linear-gradient(180deg, #ffffff0e, #0000000a); color: var(--fg); }
+
+    footer{ margin-top: 8px; color: var(--muted); font-size:.92rem; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+    .small{ font-size:.9rem; color: var(--muted); }
+
+    /* 低速/低電力向け: できるだけ動きを抑える */
+    @media (prefers-reduced-motion: reduce){
+      .bar{ animation: none; width: 55%; }
+      .btn{ transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap" aria-labelledby="title">
+    <header>
+      <div class="logo" aria-hidden="true"></div>
+      <div class="brand">Your Brand</div>
+    </header>
+
+    <section class="card" role="status" aria-live="polite">
+      <div class="panel">
+        <p class="pill" title="現在の状態">
+          <span class="dot" aria-hidden="true"></span>
+          サイト準備中
+        </p>
+        <h1 id="title" class="title">ただいま、ホームページを作成中です。</h1>
+        <p class="lead">公開まで今しばらくお待ちください。最新情報は各種SNSにてお知らせします。</p>
+        <div class="progress" aria-label="進捗状況">
+          <div class="bar" aria-hidden="true"></div>
+        </div>
+        <div class="meta" style="margin-top:10px">
+          <div>予定公開：<strong>2025年 秋</strong>（目安）</div>
+          <div>お問い合わせ：<a class="small" href="mailto:info@example.com">info@example.com</a></div>
+        </div>
+        <div class="actions">
+          <a class="btn" href="#">最新情報を受け取る</a>
+          <a class="btn secondary" href="#">SNSへ</a>
+        </div>
+      </div>
+      <div class="panel">
+        <picture>
+          <!-- 必要に応じて画像を差し替えてください（透過PNGやSVG推奨） -->
+          <img src="data:image/svg+xml;utf8,\
+            <svg xmlns='http://www.w3.org/2000/svg' width='800' height='520' viewBox='0 0 800 520'>\
+            <defs>\
+              <linearGradient id='g' x1='0' x2='1' y1='0' y2='1'>\
+                <stop offset='0' stop-color='%237aa2ff'/>\
+                <stop offset='1' stop-color='%237ff4c3'/>\
+              </linearGradient>\
+            </defs>\
+            <rect rx='24' ry='24' x='24' y='24' width='752' height='472' fill='url(%23g)' opacity='.12'/>\
+            <g fill='none' stroke='%237aa2ff' stroke-opacity='.35'>\
+              <circle cx='120' cy='160' r='40'/>\
+              <rect x='210' y='120' width='220' height='80' rx='14'/>\
+              <rect x='210' y='220' width='380' height='120' rx='16'/>\
+              <path d='M620 120 h120 v80 h-120 z' rx='16'/>\
+              <path d='M120 260 q60 -40 120 0 t120 0 t120 0'/>\
+            </g>\
+            <text x='40' y='440' fill='%23a9b0c6' font-family='system-ui, -apple-system, Segoe UI, Roboto, Noto Sans JP, sans-serif' font-size='18'>イメージ差し替え可能なプレースホルダ</text>\
+          </svg>" alt="開発中のイメージ（差し替え可能）" style="display:block;width:100%;height:auto;border-radius:14px; border:1px solid var(--ring)" />
+        </picture>
+      </div>
+    </section>
+
+    <footer>
+      <div class="small">© <span id="y"></span> Your Brand. All rights reserved.</div>
+      <div class="small">このページは公開までの仮表示です。</div>
+    </footer>
+  </main>
+
+  <script>
+    // 年だけ自動更新（JS不要なら削除可）
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

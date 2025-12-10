@@ -1,0 +1,216 @@
+/* 共通部 */
+body {
+    font-family: "Josefin Sans", "Noto Sans JP", sans-serif;
+    letter-spacing: 0.05em;
+    color: #3c301e;
+    margin: 0;
+    background-color: #f5f5f5;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.inner {
+    padding: 100px 200px;
+}
+
+.title {
+    font-size: 50px;
+    padding-bottom: 100px;
+}
+
+p {
+    /* font-family: "Noto Sans JP", "Arial Black", Arial, sans-serif; */
+    font-family:  "游教科書体";
+}
+
+
+.link {
+  text-decoration: none;
+}
+
+a{
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+a,a:hover,a:visited{
+    color: inherit;
+}
+
+a:hover{
+    transform: scale(1.1);
+}
+
+
+h2{
+    font-family:  "Arial Brack", Arial;
+}
+/* header */
+.header {
+    border-bottom: 1px solid rgba(241, 238, 228, 0.25);
+    padding: 12px 0;
+}
+
+.header-inner {
+    padding: 0 40px;
+    max-width: 1080px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-logo {
+    width: 20%;
+}
+.header-logo img {
+    width: 100%;
+    height: auto;
+}
+
+.header-nav {
+    color: black;
+}
+.header-nav-list {
+    list-style: none;
+    position: fixed;
+    top: 550px; 
+}
+.header-nav-item {
+    padding: 5px 20px;
+}
+.header-about-item {
+    margin-bottom: 40px; /* Contact との間を広げる */
+}
+
+/* fv */
+.fv-picture img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* news */
+.news-title{
+    text-align: center;
+}
+.news-item{
+    font-size: 20px;
+    text-align: center;
+    list-style: none;
+    padding: 10px;
+}
+
+/* Products */
+.products-title {
+    text-align: center;
+}
+.products-contents {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+.products-img {
+    width: 50%;
+}
+
+/* Beverages */
+.beverages-title {
+    text-align: right;
+}
+.beverages-contents {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+.beverages-text-contents {
+    flex: 1;
+}
+.beverages-img {
+    width: auto;
+    max-width: 100%;
+    display: block;
+}
+.beverages-link-text {
+    padding: 60px 0;
+    text-align: right;
+}
+
+/* About */
+.about-title {
+    text-align: center;
+    padding-bottom: 0;
+}
+.about-catchphrase {
+    width: 100%;
+    text-align: center;
+    padding: 100px 0;
+    font-size: 40px;
+}
+.about-text {
+    text-align: center;
+    padding-bottom: 80px;
+}
+.about-link-text {
+    padding: 60px 0;
+    text-align: right;
+}
+
+/* Shop/Pop-up */
+.shop-map {
+    padding: 50px 0;
+    width: 60%;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Footer */
+.footer {
+    background-color: #5F80AC;
+    text-align: center;
+    padding-top: 46px;
+    color: #f5f5f5; /* 黒から白に変更で可読性向上 */
+}
+
+.footer-logo {
+    width: 200px;
+    margin: 0 auto;
+}
+
+.footer-text {
+    font-size: 12px;
+}
+
+.footer-nav-list {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    padding: 0 20px;
+    list-style: none;
+}
+
+.footer-nav-link-text {
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+.sns-img {
+    width: 56px;
+}
+
+.footer-copy-wrapper {
+    border-top: 3px solid rgba(241, 238, 228, 0.25);
+    padding: 12px;
+    margin-top: 46px;
+}
+
+.footer-copylight {
+    font-size: 12px;
+}
+
+
