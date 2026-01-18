@@ -1,4 +1,6 @@
-/* 共通部 */
+/* =====================
+   共通部
+===================== */
 body {
     font-family: "Josefin Sans", "Noto Sans JP", sans-serif;
     letter-spacing: 0.05em;
@@ -23,22 +25,30 @@ img {
 }
 
 p {
-    /* font-family: "Noto Sans JP", "Arial Black", Arial, sans-serif; */
-    font-family:  "游教科書体";
+    font-family: "游教科書体";
 }
-
 
 .link {
   text-decoration: none;
 }
 
-a{
+a {
     text-decoration: none;
     transition: 0.3s;
 }
 
-a,a:hover,a:visited{
+a,
+a:hover,
+a:visited {
     color: inherit;
+}
+
+.products-link,
+.beverages-link,
+.about-link {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
 }
 
 .products-link:hover,
@@ -47,15 +57,19 @@ a,a:hover,a:visited{
     transform: scale(1.05);
 }
 
-
-h2{
-    font-family:  "Arial Black", Arial;
+h1,h2 {
+    font-family: "Arial Black", Arial;
 }
 
-h3{
-     text-shadow: 0 0 5px rgba(255,255,255,0.7);
+h3.about-catchphrase {
+    text-shadow: 0 0 5px rgba(255,255,255,0.7);
+    font-size: 30px;
+    font-family: "Big Caslon", "Big Caslon Medium", serif;
 }
-/* header */
+
+/* =====================
+   Header
+===================== */
 .header {
     border-bottom: 1px solid rgba(241, 238, 228, 0.25);
     padding: 12px 0;
@@ -73,40 +87,31 @@ h3{
 .header-logo {
     width: 20%;
 }
-.header-logo img {
-    width: 100%;
-    height: auto;
-}
 
-.header-nav {
-    color: black;
-}
 .header-nav-list {
     position: fixed;
-    top: 75%;
-    transform: translateY(-50%);
+    top: 50%;
+    left: 24px;
+    transform: translateY(-50%) translateY(120px);
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
+
 .header-nav-item {
     padding: 5px 20px;
 }
-.header-about-item {
-    margin-bottom: 40px;
+
+/* =====================
+   FV
+===================== */
+.fv {
+    position: relative;
+    overflow: hidden;
 }
 
-/* fv */
-.fv-picture img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-.fv{
-    position:relative
-}
-
-.fv-container{
-    position:absolute;
+.fv-container {
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -114,82 +119,160 @@ h3{
     text-align: center;
     width: 100%;
 }
-/* news */
-.news-title{
+
+/* =====================
+   News（Accordion）
+===================== */
+.news-title {
     text-align: left;
-    padding-bottom: 0;
-}
-.news-item{
-    font-size: 20px;
-    text-align: center;
-    list-style: none;
-    padding: 10px;
+    padding-bottom: 40px;
 }
 
-/* Products */
+.news-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* アコーディオンボタン */
+.accordion__title {
+    position: relative;
+    padding-left: 44px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 20px;
+}
+
+/* 共通線 */
+.accordion__title::before,
+.accordion__title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 14px;
+    height: 1.5px;
+    background-color: #3c301e;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+/* 横線 */
+.accordion__title::before {
+    transform: translateY(-50%);
+}
+
+/* 縦線（＋用） */
+.accordion__title::after {
+    transform: translateY(-50%) rotate(90deg);
+}
+
+/* 開いたら − */
+.accordion__title.is-open::after {
+    opacity: 0;
+}
+
+/* hover */
+.accordion__title:hover::before,
+.accordion__title:hover::after {
+    background-color: #6b8e9e;
+}
+
+.accordion__content {
+    display: none;
+}
+
+.news-item {
+    border-bottom: 1px solid rgba(60, 48, 30, 0.2);
+    padding: 16px 0;
+}
+
+.news-detail {
+    margin-top: 12px;
+    line-height: 1.8;
+    text-align: center;
+}
+
+/* =====================
+   Products
+===================== */
 .products-title {
     text-align: center;
 }
+
 .products-contents {
     display: flex;
     gap: 40px;
     align-items: center;
 }
+
 .products-img {
     width: 50%;
 }
 
-/* Beverages */
+/* =====================
+   Beverages
+===================== */
 .beverages-title {
     text-align: right;
 }
+
 .beverages-contents {
     display: flex;
     align-items: center;
     gap: 40px;
 }
+
 .beverages-text-contents {
     flex: 1;
 }
+
 img.beverages-img {
     width: 50%;
     max-width: 100%;
-    display: block;
 }
+
 .beverages-link-text {
     padding: 60px 0;
     text-align: right;
 }
 
-/* About */
+/* =====================
+   About
+===================== */
 .about-title {
     text-align: center;
     padding-bottom: 0;
 }
+
 .about-catchphrase {
-    width: 100%;
     text-align: center;
     padding: 100px 0;
     font-size: 40px;
 }
+
 .about-text {
     text-align: center;
     padding-bottom: 80px;
 }
+
 .about-link-text {
     padding: 60px 0;
     text-align: right;
 }
 
-/* Shop/Pop-up */
+/* =====================
+   Shop / Pop-up
+===================== */
 .shop-map {
     padding: 50px 0;
     width: 60%;
-    display: block;
     margin: 0 auto;
 }
 
-/* Footer */
+/* =====================
+   Footer
+===================== */
 .footer {
     background-color: #4A6A78;
     text-align: center;
@@ -202,7 +285,8 @@ img.beverages-img {
     margin: 0 auto;
 }
 
-.footer-text {
+.footer-text,
+.footer-copylight {
     font-size: 12px;
 }
 
@@ -215,17 +299,9 @@ img.beverages-img {
     list-style: none;
 }
 
-.footer-nav-link-text {
-    font-size: 12px;
-    margin-top: 12px;
-}
-
 .sns-img {
     width: 56px;
-}
-
-img.sns-img{
-    padding-bottom:5px;
+    padding-bottom: 5px;
 }
 
 .footer-copy-wrapper {
@@ -233,9 +309,3 @@ img.sns-img{
     padding: 12px;
     margin-top: 46px;
 }
-
-.footer-copylight {
-    font-size: 12px;
-}
-
-
