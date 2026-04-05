@@ -22,10 +22,26 @@
     <header class="header">
         <div class="header-inner">
             <h1 class="header-logo">
-                <img src="./img/logo.png" alt="+1Coffee ロゴ">
+                <a href="./main.html#top">
+                    <img src="./img/logo.png" alt="+1Coffee ロゴ">
+                </a>
             </h1>
+            <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="menu-drawer" aria-label="メニューを開く">
+                <span class="menu-toggle-line"></span>
+                <span class="menu-toggle-line"></span>
+                <span class="menu-toggle-line"></span>
+            </button>
         </div>
     </header>
+    <div class="menu-drawer-backdrop"></div>
+    <nav id="menu-drawer" class="menu-drawer" aria-label="メニューナビゲーション">
+        <ul class="menu-drawer-list">
+            <li><a href="./main.html" class="menu-drawer-link">Top</a></li>
+            <li><a href="./menu.html" class="menu-drawer-link">Beverages</a></li>
+            <li><a href="./contact.html" class="menu-drawer-link">Contact</a></li>
+            <li><a href="./FAQ.html" class="menu-drawer-link">FAQ</a></li>
+        </ul>
+    </nav>
 
     <nav class="header-nav" aria-label="メインナビゲーション">
         <ul class="header-nav-list">
@@ -42,7 +58,7 @@
     <div class="fv" id="top">
         <picture class="fv-picture">
             <source media="(min-width:768px)" srcset="./img/fv.jpg">
-            <source media="(max-width:767px)" srcset="./img/sp/fv.png">
+            <source media="(max-width:767px)" srcset="./img/fv.jpg">
             <img src="./img/fv.jpg" alt="コーヒーとカップのイメージ">
         </picture>
 
@@ -80,6 +96,7 @@
                 <p class="accordion__content">
                     詳細です
                 </p>
+            </div>
             <div class="accordion">
                 <button type="button" class="accordion__title js-accordion">
                     オンラインストアを開設しました！
@@ -120,7 +137,7 @@
                         店頭でしか味わえない、特別なコーヒー体験を。<br>
                         ブレンドやアレンジドリンクで、気分にフィットする一杯を見つけてください。
                     </p>
-                    <a href="https://www.instagram.com/plus_one_stand/?__pwa=1" target="_blank" class="beverages-link">
+                    <a href="./menu.html" class="beverages-link">
                         ビバレッジメニューへ →
                     </a>
                 </div>
