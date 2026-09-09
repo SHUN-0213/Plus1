@@ -50,3 +50,21 @@ if (menuToggle && menuDrawer && menuBackdrop) {
         }
     });
 }
+
+const contactForm = document.querySelector("#contact-form");
+const contactFormStatus = document.querySelector("#contact-form-status");
+
+if (contactForm && contactFormStatus) {
+    contactForm.addEventListener("submit", event => {
+        event.preventDefault();
+
+        if (!contactForm.reportValidity()) {
+            return;
+        }
+
+        contactFormStatus.textContent = "入力内容を確認しました。このデモでは実際の送信は行われません。";
+        contactFormStatus.hidden = false;
+        contactForm.reset();
+        contactFormStatus.focus();
+    });
+}

@@ -124,6 +124,31 @@ body {
     box-shadow: 0 12px 24px rgba(47, 71, 82, 0.22);
 }
 
+.contact-form-note,
+.contact-form-status {
+    margin: 0;
+    text-align: center;
+    line-height: 1.7;
+}
+
+.contact-form-note {
+    color: rgba(60, 48, 30, 0.72);
+    font-size: 14px;
+}
+
+.contact-form-status {
+    padding: 14px 18px;
+    border-radius: 14px;
+    background-color: rgba(74, 106, 120, 0.12);
+    color: #2f4752;
+    font-weight: 700;
+}
+
+.contact-form-status:focus {
+    outline: 3px solid rgba(74, 106, 120, 0.28);
+    outline-offset: 3px;
+}
+
 @media screen and (max-width: 767px) {
     .contact-page {
         padding: 32px 0 72px;
