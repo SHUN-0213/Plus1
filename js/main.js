@@ -1,14 +1,10 @@
 document.querySelectorAll(".js-accordion").forEach(btn => {
     btn.addEventListener("click", () => {
-        btn.classList.toggle("is-open");
-
+        const isOpen = btn.classList.toggle("is-open");
         const content = btn.nextElementSibling;
 
-        if (content.style.display === "block") {
-            content.style.display = "none";
-        } else {
-            content.style.display = "block";
-        }
+        btn.setAttribute("aria-expanded", String(isOpen));
+        content.hidden = !isOpen;
     });
 });
 
