@@ -197,6 +197,11 @@ body.menu-open .menu-toggle-line:nth-child(3) {
     gap: 40px 60px;
 }
 
+.signature {
+    padding-top: 72px;
+    border-top: 1px solid rgba(60, 48, 30, 0.3);
+}
+
 .signature .beverages-grid {
     grid-template-columns: repeat(2, minmax(280px, 280px));
     justify-content: center;
@@ -262,6 +267,10 @@ body.menu-open .menu-toggle-line:nth-child(3) {
         grid-template-columns: 1fr;
     }
 
+    .signature {
+        padding-top: 56px;
+    }
+
     .beverage-card p {
         font-size: 16px;
     }
@@ -276,7 +285,7 @@ body.menu-open .menu-toggle-line:nth-child(3) {
     Footer
 ===================== */
 .footer {
-    background-color: #4A6A78;
+    background-color: #3c301e;
     text-align: center;
     padding-top: 46px;
     color: #f5f5f5;
@@ -313,8 +322,19 @@ body.menu-open .menu-toggle-line:nth-child(3) {
 }
 .sns-img {
     width: 56px;
+    height: 56px;
     display: block;
-    padding-bottom: 7px;
+    margin-bottom: 7px;
+    padding: 0;
+    box-sizing: border-box;
+    object-fit: contain;
+}
+
+.sns-x-icon {
+    padding: 13px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    color: #111111;
 }
 
 .footer-copy-wrapper {

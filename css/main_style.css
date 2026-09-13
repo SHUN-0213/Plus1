@@ -48,15 +48,36 @@ a:visited {
 .products-link,
 .beverages-link,
 .about-link {
+    position: relative;
     display: block;
+    width: fit-content;
+    padding-bottom: 4px;
     text-align: center;
     margin: 0 auto;
 }
 
-.products-link:hover,
-.beverages-link:hover,
-.about-link:hover {
-    transform: scale(1.05);
+.products-link::after,
+.beverages-link::after,
+.about-link::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.products-link:hover::after,
+.products-link:focus-visible::after,
+.beverages-link:hover::after,
+.beverages-link:focus-visible::after,
+.about-link:hover::after,
+.about-link:focus-visible::after {
+    transform: scaleX(1);
 }
 
 h1,h2 {
@@ -235,41 +256,34 @@ body.menu-open .menu-toggle-line:nth-child(3) {
 }
 
 /* 共通線 */
-.accordion__title::before,
-.accordion__title::after {
-    content: "";
+.accordion__title::before {
+    content: "▶";
     position: absolute;
     left: 0;
     top: 50%;
-    width: 14px;
-    height: 1.5px;
-    background-color: #3c301e;
-    transition: opacity 0.3s, transform 0.3s;
-}
-
-/* 横線 */
-.accordion__title::before {
+    color: #3c301e;
+    font-size: 13px;
+    line-height: 1;
     transform: translateY(-50%);
+    transition: color 0.3s, transform 0.3s;
 }
 
-/* 縦線（＋用） */
 .accordion__title::after {
+    content: none;
+}
+
+/* 開いたら下向きにする */
+.accordion__title.is-open::before {
     transform: translateY(-50%) rotate(90deg);
 }
 
-/* 開いたら − */
-.accordion__title.is-open::after {
-    opacity: 0;
-}
-
 /* hover */
-.accordion__title:hover::before,
-.accordion__title:hover::after {
-    background-color: #6b8e9e;
+.accordion__title:hover::before {
+    color: #6b8e9e;
 }
 
 .accordion__content {
-    display: none;
+    margin-top: 12px;
 }
 
 .news-item {
@@ -360,11 +374,20 @@ img.beverages-img {
     margin: 0 auto;
 }
 
+.shop-info-link {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.shop-info-link:hover {
+    opacity: 0.65;
+}
+
 /* =====================
    Footer
 ===================== */
 .footer {
-    background-color: #4A6A78;
+    background-color: #3c301e;
     text-align: center;
     padding-top: 46px;
     color: #f5f5f5; /* 黒から白に変更で可読性向上 */
@@ -401,8 +424,19 @@ img.beverages-img {
 }
 .sns-img {
     width: 56px;
+    height: 56px;
     display: block;
-    padding-bottom: 7px;
+    margin-bottom: 7px;
+    padding: 0;
+    box-sizing: border-box;
+    object-fit: contain;
+}
+
+.sns-x-icon {
+    padding: 13px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    color: #111111;
 }
 
 .footer-copy-wrapper {

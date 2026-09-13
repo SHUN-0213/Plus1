@@ -1,209 +1,206 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>サイト準備中 | Coming Soon</title>
-  <meta name="description" content="ただいまサイトを準備中です。近日公開予定。" />
-  <meta name="robots" content="noindex, nofollow" />
-  <!-- <link rel="icon" href="/favicon.ico"> -->
-  <style>
-    :root{
-      --bg: #0b1020;
-      --card: #0f1530cc;
-      --fg: #e8ebf2;
-      --muted: #a9b0c6;
-      --accent: #7aa2ff; /* アクセント */
-      --accent-2: #7ff4c3; /* グラデ混色 */
-      --ring: #ffffff20;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius: 18px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta name="robots" content="noindex">
+    <title>+1Coffee - いつものコーヒーに、新しい選択肢を</title>
+    <meta name="description" content="+1Coffeeは、日常に特別なコーヒー体験を提供するブランドです。コーヒー豆、ディップ、店頭限定ドリンクなど、あなたの一日を豊かにする選択肢をお届けします。">
 
-    @media (prefers-color-scheme: light) {
-      :root{
-        --bg: #f6f8fe;
-        --card: #ffffffcc;
-        --fg: #1a1c24;
-        --muted: #5a6480;
-        --accent: #2f6aff;
-        --accent-2: #00c18d;
-        --ring: #00000014;
-        --shadow: 0 8px 22px rgba(0,0,0,.08);
-      }
-    }
-
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body{
-      margin:0;
-      background:
-        radial-gradient(1200px 600px at 80% -10%, color-mix(in lch, var(--accent) 30%, transparent), transparent 70%),
-        radial-gradient(900px 500px at -10% 110%, color-mix(in lch, var(--accent-2) 28%, transparent), transparent 75%),
-        linear-gradient(180deg, color-mix(in lch, var(--bg) 94%, black 6%), var(--bg));
-      color: var(--fg);
-      font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic UI", "Yu Gothic", Meiryo, sans-serif;
-      display:grid;
-      place-items:center;
-      padding: 24px;
-    }
-
-    .wrap{
-      width:min(960px, 100%);
-      backdrop-filter: saturate(140%) blur(10px);
-      -webkit-backdrop-filter: saturate(140%) blur(10px);
-      background: var(--card);
-      border: 1px solid var(--ring);
-      box-shadow: var(--shadow);
-      border-radius: var(--radius);
-      padding: clamp(20px, 3.2vw, 36px);
-    }
-
-    header{
-      display:flex; align-items:center; gap:16px; margin-bottom:20px;
-    }
-
-    .logo{
-      width:48px; height:48px; border-radius:14px; display:grid; place-items:center;
-      background: conic-gradient(from 180deg, var(--accent), var(--accent-2));
-      box-shadow: 0 10px 22px color-mix(in lch, var(--accent) 40%, transparent);
-      position: relative; overflow:hidden;
-    }
-    .logo::after{
-      content:""; position:absolute; inset:1px; border-radius:12px;
-      background: linear-gradient(180deg, #ffffff44, #ffffff12 30%, transparent 60%);
-    }
-    .brand{ font-weight:700; letter-spacing:.2px; }
-
-    .card{
-      display:grid; gap:20px;
-      grid-template-columns: 1.2fr .8fr;
-    }
-    @media (max-width: 780px){ .card{ grid-template-columns: 1fr; } }
-
-    .title{
-      font-size: clamp(24px, 3.6vw, 34px);
-      line-height: 1.25;
-      margin: 4px 0 6px;
-    }
-    .lead{ color: var(--muted); margin:0 0 6px; }
-
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:6px 10px; border:1px solid var(--ring); border-radius:999px; font-size:.9rem; color: var(--muted);
-      background: linear-gradient(180deg, #ffffff10, #00000006);
-    }
-
-    /* プログレスバー */
-    .progress{
-      position: relative;
-      height: 12px; border-radius: 999px; overflow:hidden; width: 100%;
-      background: color-mix(in lch, var(--fg) 8%, transparent);
-      border: 1px solid var(--ring);
-      box-shadow: inset 0 1px 3px rgba(0,0,0,.08);
-    }
-    .bar{
-      position: absolute; inset:0 auto 0 0; width: 0%;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
-      filter: saturate(140%);
-      animation: load 3.2s ease-in-out infinite;
-    }
-    @keyframes load{
-      0%{ width: 8%; }
-      50%{ width: 92%; }
-      100%{ width: 8%; }
-    }
-
-    /* ステータス点滅 */
-    .dot{ width:10px; height:10px; border-radius:50%; background: var(--accent); box-shadow: 0 0 0 3px color-mix(in lch, var(--accent) 25%, transparent); }
-
-    .panel{ display:grid; gap:16px; }
-
-    .meta{
-      display:flex; gap:12px; flex-wrap:wrap; align-items:center;
-      color: var(--muted);
-    }
-
-    .actions{ display:flex; gap:10px; flex-wrap:wrap; }
-    .btn{ appearance:none; border:none; cursor:pointer; text-decoration:none; color:var(--fg);
-      padding:10px 14px; border-radius:12px; font-weight:600; letter-spacing:.2px; transition: transform .06s ease, box-shadow .06s ease; 
-      background: linear-gradient(180deg, color-mix(in lch, var(--accent) 45%, transparent), color-mix(in lch, var(--accent) 18%, transparent));
-      border:1px solid var(--ring); box-shadow: var(--shadow);
-    }
-    .btn:hover{ transform: translateY(-1px); }
-    .btn.secondary{ background: linear-gradient(180deg, #ffffff0e, #0000000a); color: var(--fg); }
-
-    footer{ margin-top: 8px; color: var(--muted); font-size:.92rem; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
-    .small{ font-size:.9rem; color: var(--muted); }
-
-    /* 低速/低電力向け: できるだけ動きを抑える */
-    @media (prefers-reduced-motion: reduce){
-      .bar{ animation: none; width: 55%; }
-      .btn{ transition: none; }
-    }
-  </style>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;700&family=Noto+Sans+JP:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    >
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/main_style.css">
 </head>
 <body>
-  <main class="wrap" aria-labelledby="title">
-    <header>
-      <div class="logo" aria-hidden="true"></div>
-      <div class="brand">Your Brand</div>
+    <header class="header">
+        <div class="header-inner">
+            <h1 class="header-logo">
+                <a href="./index.html#top">
+                    <img src="./img/logo.png" alt="+1Coffee ロゴ">
+                </a>
+            </h1>
+            <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="menu-drawer" aria-label="メニューを開く">
+                <span class="menu-toggle-line"></span>
+                <span class="menu-toggle-line"></span>
+                <span class="menu-toggle-line"></span>
+            </button>
+        </div>
     </header>
+    <div class="menu-drawer-backdrop"></div>
+    <nav id="menu-drawer" class="menu-drawer" aria-label="メニューナビゲーション">
+        <ul class="menu-drawer-list">
+            <li><a href="./index.html" class="menu-drawer-link">Top</a></li>
+            <li><a href="./menu.html" class="menu-drawer-link">Beverages</a></li>
+            <li><a href="./contact.html" class="menu-drawer-link">Contact</a></li>
+            <li><a href="./FAQ.html" class="menu-drawer-link">FAQ</a></li>
+        </ul>
+    </nav>
 
-    <section class="card" role="status" aria-live="polite">
-      <div class="panel">
-        <p class="pill" title="現在の状態">
-          <span class="dot" aria-hidden="true"></span>
-          サイト準備中
-        </p>
-        <h1 id="title" class="title">ただいま、ホームページを作成中です。</h1>
-        <p class="lead">公開まで今しばらくお待ちください。最新情報は各種SNSにてお知らせします。</p>
-        <div class="progress" aria-label="進捗状況">
-          <div class="bar" aria-hidden="true"></div>
-        </div>
-        <div class="meta" style="margin-top:10px">
-          <div>予定公開：<strong>2025年 秋</strong>（目安）</div>
-          <div>お問い合わせ：<a class="small" href="mailto:info@example.com">info@example.com</a></div>
-        </div>
-        <div class="actions">
-          <a class="btn" href="#">最新情報を受け取る</a>
-          <a class="btn secondary" href="#">SNSへ</a>
-        </div>
-      </div>
-      <div class="panel">
-        <picture>
-          <!-- 必要に応じて画像を差し替えてください（透過PNGやSVG推奨） -->
-          <img src="data:image/svg+xml;utf8,\
-            <svg xmlns='http://www.w3.org/2000/svg' width='800' height='520' viewBox='0 0 800 520'>\
-            <defs>\
-              <linearGradient id='g' x1='0' x2='1' y1='0' y2='1'>\
-                <stop offset='0' stop-color='%237aa2ff'/>\
-                <stop offset='1' stop-color='%237ff4c3'/>\
-              </linearGradient>\
-            </defs>\
-            <rect rx='24' ry='24' x='24' y='24' width='752' height='472' fill='url(%23g)' opacity='.12'/>\
-            <g fill='none' stroke='%237aa2ff' stroke-opacity='.35'>\
-              <circle cx='120' cy='160' r='40'/>\
-              <rect x='210' y='120' width='220' height='80' rx='14'/>\
-              <rect x='210' y='220' width='380' height='120' rx='16'/>\
-              <path d='M620 120 h120 v80 h-120 z' rx='16'/>\
-              <path d='M120 260 q60 -40 120 0 t120 0 t120 0'/>\
-            </g>\
-            <text x='40' y='440' fill='%23a9b0c6' font-family='system-ui, -apple-system, Segoe UI, Roboto, Noto Sans JP, sans-serif' font-size='18'>イメージ差し替え可能なプレースホルダ</text>\
-          </svg>" alt="開発中のイメージ（差し替え可能）" style="display:block;width:100%;height:auto;border-radius:14px; border:1px solid var(--ring)" />
+    <nav class="header-nav" aria-label="メインナビゲーション">
+        <ul class="header-nav-list">
+            <li class="header-nav-item"><a href="#top" class="header-nav-link">Top</a></li>
+            <li class="header-nav-item"><a href="#news" class="header-nav-link">News</a></li>
+            <li class="header-nav-item"><a href="#products" class="header-nav-link">Products</a></li>
+            <li class="header-nav-item"><a href="#beverages" class="header-nav-link">Beverages</a></li>
+            <li class="header-nav-item"><a href="#about" class="header-nav-link">About</a></li>
+            <li class="header-nav-item"><a href="./contact.html" class="header-nav-link">Contact</a></li>
+            <li class="header-nav-item"><a href="./FAQ.html" class="header-nav-link">FAQ</a></li>
+        </ul>
+    </nav>
+
+    <div class="fv" id="top">
+        <picture class="fv-picture">
+            <source media="(min-width:768px)" srcset="./img/fv.jpg">
+            <source media="(max-width:767px)" srcset="./img/fv.jpg">
+            <img src="./img/fv.jpg" alt="コーヒーとカップのイメージ">
         </picture>
-      </div>
+    </div>
+
+    <section id="news" class="news">
+        <div class="inner">
+            <h2 class="title news-title">News</h2>
+            <div class="accordion">
+                <button type="button" class="accordion__title js-accordion" id="news-trigger-1" aria-expanded="false" aria-controls="news-content-1">
+                    [8月11日] POP UP 出店のお知らせ
+                </button>
+                <p class="accordion__content" id="news-content-1" aria-labelledby="news-trigger-1" hidden>
+                    [8月11日] POP UP 出店のお知らせの詳細です
+                </p>
+            </div>
+
+            <div class="accordion">
+                <button type="button" class="accordion__title js-accordion" id="news-trigger-2" aria-expanded="false" aria-controls="news-content-2">
+                    新商品『Wake Up !!! Blend.』登場!!
+                </button>
+                <p class="accordion__content" id="news-content-2" aria-labelledby="news-trigger-2" hidden>
+                    新商品の詳細です
+                </p>
+            </div>
+
+            <div class="accordion">
+                <button type="button" class="accordion__title js-accordion" id="news-trigger-3" aria-expanded="false" aria-controls="news-content-3">
+                    [メディア出演] 愛知県のFMラジオ番組「DAY DREAM MA…」
+                </button>
+                <p class="accordion__content" id="news-content-3" aria-labelledby="news-trigger-3" hidden>
+                    詳細です
+                </p>
+            </div>
+            <div class="accordion">
+                <button type="button" class="accordion__title js-accordion" id="news-trigger-4" aria-expanded="false" aria-controls="news-content-4">
+                    オンラインストアを開設しました！
+                </button>
+                <p class="accordion__content" id="news-content-4" aria-labelledby="news-trigger-4" hidden>
+                    オンラインサイトを開設しました！詳細はこちら
+                </p>
+            </div>
+        </div>
     </section>
 
-    <footer>
-      <div class="small">© <span id="y"></span> Your Brand. All rights reserved.</div>
-      <div class="small">このページは公開までの仮表示です。</div>
-    </footer>
-  </main>
 
-  <script>
-    // 年だけ自動更新（JS不要なら削除可）
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+    <section id="products" class="products">
+        <div class="inner">
+            <h2 class="title products-title">Products</h2>
+            <div class="products-contents">
+                <img src="./img/Products.png" alt="商品のコーヒー豆とディップスタイル画像" class="products-img">
+                <div class="products-text-contents">
+                    <p class="products-text">
+                        コーヒー豆やディップスタイルで、日常を彩る新しい選択肢を。<br>
+                        自分用にもギフトにもぴったりの、香りと気分を楽しむブレンドをご用意しています。
+                    </p>
+                    <a href="https://shop.plusonecoffee.jp/" target="_blank" rel="noopener noreferrer" class="products-link">
+                        オンラインストアへ →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="beverages" class="beverages">
+        <div class="inner">
+            <h2 class="title beverages-title">Beverages</h2>
+            <div class="beverages-contents">
+                <div class="beverages-text-contents">
+                    <p class="beverages-text">
+                        店頭でしか味わえない、特別なコーヒー体験を。<br>
+                        ブレンドやアレンジドリンクで、気分にフィットする一杯を見つけてください。
+                    </p>
+                    <a href="./menu.html" class="beverages-link">
+                        ビバレッジメニューへ →
+                    </a>
+                </div>
+                <img src="./img/Beverages.png" alt="店頭のビバレッジ画像" class="beverages-img">
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="inner">
+            <h2 class="title about-title">About</h2>
+            <h3 class="about-catchphrase">「いつものコーヒーに、新たな選択肢を。」</h3>
+            <p class="about-text">
+                みなさんは、どんなときにコーヒーを手に取りますか？<br><br>
+                朝、心を整えたいとき。<br>
+                仕事の合間に、気持ちを切り替えたいとき。<br>
+                休日の午後、自分だけの時間にひたりたいとき。<br><br>
+                何気ない一日も、特別な一日も。<br>
+                コーヒーは、静かに寄り添い、その日を少しだけ特別にしてくれます。<br><br>
+                私たちは、気分やシーンに合わせて、もっと自由に選べるコーヒーがあれば、<br>
+                その一日が、もっとその人らしくなると信じています。<br><br>
+                +1COFFEEは、「今日はいい一日だった」と思える日が、少しでも増えるように。<br>
+                そんな一杯を、お届けしたいと考えています。
+            </p>
+            <a href="https://www.instagram.com/plus_one_stand/?__pwa=1" target="_blank" rel="noopener noreferrer" class="about-link">
+                +1COFFEEが目指すもの、考えていること →
+            </a>
+        </div>
+    </section>
+
+    <section class="shop">
+        <div class="inner">
+            <h2 class="title shop-pop-up-title">Shop / Pop-up</h2>
+            <p>
+                現在、実店舗はまだありません。<br>
+                是非POP UPにお越しください。<br>
+                POP UPの情報は<a href="https://www.instagram.com/plus_one_stand/?__pwa=1" target="_blank" rel="noopener noreferrer" class="shop-info-link">Instagram</a>や<a href="#news" class="shop-info-link">News</a>をご覧ください。
+            </p>
+            <div class="shop-map">
+                <img src="./img/map.png" alt="POP-UP開催地の地図">
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-logo">
+            <img src="./img/logo.png" alt="+1Coffee ロゴ">
+        </div>
+        <p class="footer-text">ー 各SNS更新中 ー</p>
+        <ul class="footer-nav-list">
+            <li>
+                <a href="https://www.instagram.com/plus_one_stand/?__pwa=1" target="_blank" rel="noopener noreferrer" class="footer-nav-item">
+                    <img src="./img/icon-instagram.png" alt="Instagramアイコン" class="sns-img">
+                    <span class="footer-nav-link-text">Instagram</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://x.com/plus_one_coffee/" target="_blank" rel="noopener noreferrer" class="footer-nav-item">
+                    <svg class="sns-img sns-x-icon" viewBox="0 0 24 24" width="56" height="56" role="img" aria-label="Xアイコン">
+                        <path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231 5.451-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/>
+                    </svg>
+                    <span class="footer-nav-link-text">X</span>
+                </a>
+            </li>
+        </ul>
+        <div class="footer-copy-wrapper">
+            <small class="footer-copylight">&copy;2025 +1Coffee</small>
+        </div>
+    </footer>
+    <script src="./js/main.js"></script>
 </body>
 </html>

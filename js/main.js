@@ -1,14 +1,10 @@
 document.querySelectorAll(".js-accordion").forEach(btn => {
     btn.addEventListener("click", () => {
-        btn.classList.toggle("is-open");
-
+        const isOpen = btn.classList.toggle("is-open");
         const content = btn.nextElementSibling;
 
-        if (content.style.display === "block") {
-            content.style.display = "none";
-        } else {
-            content.style.display = "block";
-        }
+        btn.setAttribute("aria-expanded", String(isOpen));
+        content.hidden = !isOpen;
     });
 });
 
@@ -48,5 +44,23 @@ if (menuToggle && menuDrawer && menuBackdrop) {
         if (event.key === "Escape") {
             closeMenu();
         }
+    });
+}
+
+const contactForm = document.querySelector("#contact-form");
+const contactFormStatus = document.querySelector("#contact-form-status");
+
+if (contactForm && contactFormStatus) {
+    contactForm.addEventListener("submit", event => {
+        event.preventDefault();
+
+        if (!contactForm.reportValidity()) {
+            return;
+        }
+
+        contactFormStatus.textContent = "入力内容を確認しました。このデモでは実際の送信は行われません。";
+        contactFormStatus.hidden = false;
+        contactForm.reset();
+        contactFormStatus.focus();
     });
 }
