@@ -120,6 +120,13 @@ h3.about-catchphrase {
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
     }
+
+    .top-page.menu-open .header {
+        background-color: transparent;
+        border-bottom-color: transparent;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
 }
 
 .menu-toggle {
