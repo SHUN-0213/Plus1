@@ -256,37 +256,30 @@ body.menu-open .menu-toggle-line:nth-child(3) {
 }
 
 /* 共通線 */
-.accordion__title::before,
-.accordion__title::after {
-    content: "";
+.accordion__title::before {
+    content: "▶";
     position: absolute;
     left: 0;
     top: 50%;
-    width: 14px;
-    height: 1.5px;
-    background-color: #3c301e;
-    transition: opacity 0.3s, transform 0.3s;
-}
-
-/* 横線 */
-.accordion__title::before {
+    color: #3c301e;
+    font-size: 13px;
+    line-height: 1;
     transform: translateY(-50%);
+    transition: color 0.3s, transform 0.3s;
 }
 
-/* 縦線（＋用） */
 .accordion__title::after {
+    content: none;
+}
+
+/* 開いたら下向きにする */
+.accordion__title.is-open::before {
     transform: translateY(-50%) rotate(90deg);
 }
 
-/* 開いたら − */
-.accordion__title.is-open::after {
-    opacity: 0;
-}
-
 /* hover */
-.accordion__title:hover::before,
-.accordion__title:hover::after {
-    background-color: #6b8e9e;
+.accordion__title:hover::before {
+    color: #6b8e9e;
 }
 
 .accordion__content {
@@ -422,15 +415,17 @@ img.beverages-img {
 }
 .sns-img {
     width: 56px;
+    height: 56px;
     display: block;
-    padding-bottom: 7px;
+    margin-bottom: 7px;
+    padding: 0;
+    box-sizing: border-box;
+    object-fit: contain;
 }
 
 .sns-x-icon {
-    height: 56px;
     padding: 13px;
-    box-sizing: border-box;
-    border-radius: 8px;
+    border-radius: 50%;
     background-color: #ffffff;
     color: #111111;
 }
