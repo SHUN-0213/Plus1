@@ -48,15 +48,36 @@ a:visited {
 .products-link,
 .beverages-link,
 .about-link {
+    position: relative;
     display: block;
+    width: fit-content;
+    padding-bottom: 4px;
     text-align: center;
     margin: 0 auto;
 }
 
-.products-link:hover,
-.beverages-link:hover,
-.about-link:hover {
-    transform: scale(1.05);
+.products-link::after,
+.beverages-link::after,
+.about-link::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.products-link:hover::after,
+.products-link:focus-visible::after,
+.beverages-link:hover::after,
+.beverages-link:focus-visible::after,
+.about-link:hover::after,
+.about-link:focus-visible::after {
+    transform: scaleX(1);
 }
 
 h1,h2 {
