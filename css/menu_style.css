@@ -197,6 +197,11 @@ body.menu-open .menu-toggle-line:nth-child(3) {
     gap: 40px 60px;
 }
 
+.signature {
+    padding-top: 72px;
+    border-top: 1px solid rgba(60, 48, 30, 0.3);
+}
+
 .signature .beverages-grid {
     grid-template-columns: repeat(2, minmax(280px, 280px));
     justify-content: center;
@@ -262,6 +267,10 @@ body.menu-open .menu-toggle-line:nth-child(3) {
         grid-template-columns: 1fr;
     }
 
+    .signature {
+        padding-top: 56px;
+    }
+
     .beverage-card p {
         font-size: 16px;
     }
@@ -315,6 +324,15 @@ body.menu-open .menu-toggle-line:nth-child(3) {
     width: 56px;
     display: block;
     padding-bottom: 7px;
+}
+
+.sns-x-icon {
+    height: 56px;
+    padding: 13px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #111111;
 }
 
 .footer-copy-wrapper {
