@@ -347,8 +347,11 @@ body.menu-open .menu-toggle-line:nth-child(3) {
 }
 
 img.beverages-img {
-    width: 50%;
-    max-width: 100%;
+    width: 42%;
+    max-width: 420px;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    margin-left: auto;
 }
 
 .beverages-link-text {
@@ -532,9 +535,14 @@ img.beverages-img {
         gap: 24px;
     }
 
-    .products-img,
+    .products-img {
+        width: 100%;
+    }
+
     img.beverages-img {
         width: 100%;
+        max-width: 420px;
+        margin: 0 auto;
     }
 
     .products-text-contents,
