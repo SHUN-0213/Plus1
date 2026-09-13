@@ -64,3 +64,7 @@ if (contactForm && contactFormStatus) {
         contactFormStatus.focus();
     });
 }
+
+document.querySelectorAll(".js-current-year").forEach(element => {
+    element.textContent = new Date().getFullYear();
+});
