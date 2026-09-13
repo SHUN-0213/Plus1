@@ -322,15 +322,17 @@ body.menu-open .menu-toggle-line:nth-child(3) {
 }
 .sns-img {
     width: 56px;
+    height: 56px;
     display: block;
-    padding-bottom: 7px;
+    margin-bottom: 7px;
+    padding: 0;
+    box-sizing: border-box;
+    object-fit: contain;
 }
 
 .sns-x-icon {
-    height: 56px;
     padding: 13px;
-    box-sizing: border-box;
-    border-radius: 8px;
+    border-radius: 50%;
     background-color: #ffffff;
     color: #111111;
 }
