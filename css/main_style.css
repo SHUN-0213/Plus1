@@ -283,7 +283,7 @@ body.menu-open .menu-toggle-line:nth-child(3) {
 }
 
 .accordion__content {
-    display: none;
+    margin-top: 12px;
 }
 
 .news-item {
@@ -372,6 +372,15 @@ img.beverages-img {
     padding: 50px 0;
     width: 60%;
     margin: 0 auto;
+}
+
+.shop-info-link {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.shop-info-link:hover {
+    opacity: 0.65;
 }
 
 /* =====================
