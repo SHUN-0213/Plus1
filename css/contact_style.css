@@ -110,7 +110,7 @@ body {
     padding: 14px 28px;
     border: 0;
     border-radius: 999px;
-    background: linear-gradient(135deg, #4a6a78 0%, #2f4752 100%);
+    background: linear-gradient(135deg, #5a4630 0%, #3c301e 100%);
     color: #f5f5f5;
     font-size: 16px;
     font-weight: 700;
@@ -121,7 +121,7 @@ body {
 
 .contact-submit:hover {
     transform: translateY(-1px);
-    box-shadow: 0 12px 24px rgba(47, 71, 82, 0.22);
+    box-shadow: 0 12px 24px rgba(60, 48, 30, 0.25);
 }
 
 .contact-form-note,
