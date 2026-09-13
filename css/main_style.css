@@ -426,6 +426,15 @@ img.beverages-img {
     padding-bottom: 7px;
 }
 
+.sns-x-icon {
+    height: 56px;
+    padding: 13px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #111111;
+}
+
 .footer-copy-wrapper {
     border-top: 3px solid rgba(241, 238, 228, 0.25);
     padding: 12px;
